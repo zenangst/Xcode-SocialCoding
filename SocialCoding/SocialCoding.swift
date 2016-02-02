@@ -58,6 +58,14 @@ class SocialCodingPlugin: NSObject {
 
 extension NSRulerView {
 
+  func drawBackground(color: NSColor, atLine: UInt) {
+    var (a0, a1) = (CGRect(), CGRect())
+
+    getParagraphRect(&a0, firstLineRect: &a1, forLineNumber: atLine)
+    color.set()
+    NSRectFill(a0)
+  }
+
   func zen_annotationAtSidebarPoint(point: CGPoint) -> AnyObject? {
     let annotation = zen_annotationAtSidebarPoint(point)
 
@@ -81,15 +89,15 @@ extension NSRulerView {
     return annotation
   }
 
-  func zen_drawLineNumbersInSidebarRect(rect: CGRect, indexes: Int, indexCount: Int, linesToInvert: AnyObject, linesToReplace: AnyObject, getParaRectBlock: AnyObject) {
+  func zen_drawLineNumbersInSidebarRect(rect: CGRect, foldedIndexes: Int, count: Int, linesToInvert: AnyObject, linesToReplace: AnyObject, getParaRectBlock: AnyObject) {
 
     lockFocus()
 
+    drawBackground(NSColor(calibratedRed: 244/255, green: 222/255, blue: 202/255, alpha: 1.0), atLine: 60)
 
-    
     unlockFocus()
 
-    self.zen_drawLineNumbersInSidebarRect(rect, indexes: indexes, indexCount: indexCount, linesToInvert: linesToInvert, linesToReplace: linesToReplace, getParaRectBlock: getParaRectBlock)
+    self.zen_drawLineNumbersInSidebarRect(rect, foldedIndexes: foldedIndexes, count: count, linesToInvert: linesToInvert, linesToReplace: linesToReplace, getParaRectBlock: getParaRectBlock)
   }
 
   func zen_drawBackground(color: NSColor, atLine: Int) {
