@@ -63,6 +63,8 @@ class SocialCodingPlugin: NSObject {
       .ViewMaxYMargin,
     ]
     textView.backgroundColor = NSColor(deviceRed: 254/255, green: 253/255, blue: 204/255, alpha: 1.0)
+    textView.editable = false
+    textView.textContainerInset = NSSize(width: 10, height: 10)
     textView.addGestureRecognizer(self.clickGesture)
     return textView
   }()
