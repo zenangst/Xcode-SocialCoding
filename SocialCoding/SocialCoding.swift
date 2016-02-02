@@ -28,13 +28,6 @@ class SocialCodingPlugin: NSObject {
 
   var sidebarWidth: CGFloat = 0
 
-  lazy var clickGesture: NSClickGestureRecognizer = { [unowned self] in
-    let gesture = NSClickGestureRecognizer()
-    gesture.action = "dismissComment:"
-    gesture.target = self
-    return gesture
-  }()
-
   lazy var popover: NSPopover = { [unowned self] in
     let popover = NSPopover()
     popover.animates = true
@@ -64,7 +57,7 @@ class SocialCodingPlugin: NSObject {
     ]
     textView.editable = false
     textView.textContainerInset = NSSize(width: 10, height: 10)
-    textView.addGestureRecognizer(self.clickGesture)
+
     return textView
   }()
 
@@ -105,11 +98,6 @@ class SocialCodingPlugin: NSObject {
       class_getInstanceMethod(aClass, exchange),
       class_getInstanceMethod(aClass, with)
     )
-  }
-
-  func dismissComment(sender: AnyObject) {
-    NSLog("clicked it")
-    plugin?.popover.close()
   }
 }
 
