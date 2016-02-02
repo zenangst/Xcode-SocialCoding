@@ -153,8 +153,6 @@ extension NSRulerView {
         plugin.textView.frame.origin.x = 0
         plugin.textView.frame.origin.y = 0
         plugin.popover.showRelativeToRect(a0, ofView: scrollView!, preferredEdge: NSRectEdge.MaxX)
-
-        NSLog("frame: \(plugin.textView.frame)")
       }
     }
 
