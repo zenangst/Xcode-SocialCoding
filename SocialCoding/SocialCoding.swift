@@ -14,17 +14,54 @@ extension NSObject {
   }
 }
 
+class SocialViewController: NSViewController {
+
+  override func loadView() {
+    view = NSScrollView(frame:CGRect(origin: CGPoint(x: 100, y: 100), size: CGSize(width: 1000, height: 1000)))
+  }
+
+}
+
 class SocialCodingPlugin: NSObject {
 
-  lazy var clickGesture: NSClickGestureRecognizer = {
+  var sidebarWidth: CGFloat = 0
+
+  lazy var clickGesture: NSClickGestureRecognizer = { [unowned self] in
     let gesture = NSClickGestureRecognizer()
     gesture.action = "dismissComment:"
+    gesture.target = self
     return gesture
+  }()
+
+  lazy var popover: NSPopover = { [unowned self] in
+    let popover = NSPopover()
+    popover.animates = true
+    popover.behavior = .Transient
+    popover.contentViewController = self.socialController
+    return popover
+  }()
+
+  lazy var socialController: SocialViewController = { [unowned self] in
+    let controller = SocialViewController()
+    controller.view.autoresizesSubviews = true
+    if let scrollView = controller.view as? NSScrollView {
+      scrollView.documentView = self.textView
+    }
+    return controller
   }()
 
   lazy var textView: NSTextView = { [unowned self] in
     let textView = NSTextView()
+    textView.autoresizingMask = [
+      .ViewMinXMargin,
+      .ViewWidthSizable,
+      .ViewMaxXMargin,
+      .ViewMinYMargin,
+      .ViewHeightSizable,
+      .ViewMaxYMargin,
+    ]
     textView.backgroundColor = NSColor(deviceRed: 254/255, green: 253/255, blue: 204/255, alpha: 1.0)
+    textView.addGestureRecognizer(self.clickGesture)
     return textView
   }()
 
@@ -34,6 +71,8 @@ class SocialCodingPlugin: NSObject {
 
   override init() {
     super.init()
+
+    sidebarWidth = 2.0
 
     NSNotificationCenter.defaultCenter().addObserver(self,
       selector: "applicationDidFinishLaunching:",
@@ -67,15 +106,7 @@ class SocialCodingPlugin: NSObject {
 
   func dismissComment(sender: AnyObject) {
     NSLog("clicked it")
-    textView.removeFromSuperview()
-  }
-}
-
-extension SocialCodingPlugin: NSTextViewDelegate {
-
-  func textView(textView: NSTextView, clickedOnLink link: AnyObject, atIndex charIndex: Int) -> Bool {
-    NSLog("wee")
-    return true
+    plugin?.popover.close()
   }
 }
 
@@ -97,7 +128,6 @@ extension NSRulerView {
     let attributedString = NSMutableAttributedString(string: string, attributes: attributes)
     a0.origin.x += 1.0;
     a0.origin.y += 2.0;
-    attributedString.addAttributes(["MyCustomTag" : true], range: NSRange(location: 0, length: attributedString.length))
     attributedString.drawAtPoint(a0.origin)
   }
 
@@ -114,13 +144,15 @@ extension NSRulerView {
         var (a0, a1) = (CGRect(), CGRect())
         getParagraphRect(&a0, firstLineRect: &a1, forLineNumber: 60)
 
-        plugin.textView.frame = NSRect(x: NSWidth(frame)+1.0, y: a0.origin.y, width: 500, height: 10)
-        plugin.clickGesture.target = plugin
-        plugin.textView.addGestureRecognizer(plugin.clickGesture)
+        plugin.popover.contentSize = CGSize(width: 500, height: 250)
+        plugin.textView.frame.size = plugin.popover.contentSize
+        plugin.textView.frame.origin.x = 0
+        plugin.textView.frame.origin.y = 0
+        plugin.popover.showRelativeToRect(a0, ofView: scrollView!, preferredEdge: NSRectEdge.MaxX)
 
-        scrollView?.addSubview(plugin.textView)
+        NSLog("frame: \(plugin.textView.frame)")
       } else if plugin.textView.superview != nil {
-        //plugin.textView.removeFromSuperview()
+//        plugin.popover.close()
       }
     }
 
@@ -140,6 +172,6 @@ extension NSRulerView {
   }
 
   func zen_sidebarWidth() -> CGFloat {
-    return zen_sidebarWidth() + 2
+    return zen_sidebarWidth() + (plugin?.sidebarWidth ?? 0)
   }
 }
