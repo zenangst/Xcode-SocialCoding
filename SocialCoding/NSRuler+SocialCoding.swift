@@ -35,8 +35,7 @@ extension NSRulerView {
 
         plugin.popover.contentSize = CGSize(width: 500, height: 250)
         plugin.textView.frame.size = plugin.popover.contentSize
-        plugin.textView.frame.origin.x = 0
-        plugin.textView.frame.origin.y = 0
+        plugin.textView.frame.origin = CGPoint()
         plugin.popover.showRelativeToRect(a0, ofView: scrollView!, preferredEdge: NSRectEdge.MaxX)
       }
     }
@@ -59,5 +58,6 @@ extension NSRulerView {
   func zen_sidebarWidth() -> CGFloat {
     return zen_sidebarWidth() + (plugin?.sidebarWidth ?? 0)
   }
+
 
 }
