@@ -14,6 +14,7 @@
 		BD90D0331ADF83D900370599 /* DVTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD90D0321ADF83D900370599 /* DVTKit.framework */; };
 		BD90D0351ADF83E200370599 /* IDEKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD90D0341ADF83E200370599 /* IDEKit.framework */; };
 		BD90D0371ADF83ED00370599 /* DVTFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD90D0361ADF83ED00370599 /* DVTFoundation.framework */; };
+		BDD7C5901C620240007ACB06 /* NSRuler+SocialCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD7C58F1C620240007ACB06 /* NSRuler+SocialCoding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		BD90D0321ADF83D900370599 /* DVTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVTKit.framework; path = ../../../../Applications/Xcode.app/Contents/SharedFrameworks/DVTKit.framework; sourceTree = "<group>"; };
 		BD90D0341ADF83E200370599 /* IDEKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDEKit.framework; path = ../../../../Applications/Xcode.app/Contents/Frameworks/IDEKit.framework; sourceTree = "<group>"; };
 		BD90D0361ADF83ED00370599 /* DVTFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVTFoundation.framework; path = ../../../../Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework; sourceTree = "<group>"; };
+		BDD7C58F1C620240007ACB06 /* NSRuler+SocialCoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRuler+SocialCoding.swift"; sourceTree = "<group>"; };
 		BDEBC8EE1C5FEFA9004F7621 /* XcodeHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodeHeaders.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,6 +56,7 @@
 				BD5A85EC1C5FCFFB00465C30 /* SocialCoding-Bridging-Header.h */,
 				BD5A85ED1C5FCFFB00465C30 /* SocialCoding.swift */,
 				BDEBC8EE1C5FEFA9004F7621 /* XcodeHeaders.h */,
+				BDD7C58F1C620240007ACB06 /* NSRuler+SocialCoding.swift */,
 			);
 			path = SocialCoding;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDD7C5901C620240007ACB06 /* NSRuler+SocialCoding.swift in Sources */,
 				BD5A85F11C5FCFFB00465C30 /* SocialCoding.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
