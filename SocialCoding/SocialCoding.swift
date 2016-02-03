@@ -14,31 +14,7 @@ class SocialCodingPlugin: NSObject {
     return popover
   }()
 
-  lazy var socialController: SocialViewController = { [unowned self] in
-    let controller = SocialViewController()
-    controller.view.autoresizesSubviews = true
-
-    guard let scrollView = controller.view as? NSScrollView else { return controller }
-    scrollView.documentView = self.textView
-
-    return controller
-  }()
-
-  lazy var textView: NSTextView = { [unowned self] in
-    let textView = NSTextView()
-    textView.autoresizingMask = [
-      .ViewMinXMargin,
-      .ViewWidthSizable,
-      .ViewMaxXMargin,
-      .ViewMinYMargin,
-      .ViewHeightSizable,
-      .ViewMaxYMargin,
-    ]
-    textView.editable = false
-    textView.textContainerInset = NSSize(width: 10, height: 10)
-
-    return textView
-  }()
+  lazy var socialController: SocialViewController = SocialViewController()
 
   deinit {
     NSNotificationCenter.defaultCenter().removeObserver(self)
