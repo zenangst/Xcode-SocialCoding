@@ -31,7 +31,7 @@ extension NSRulerView {
         plugin.textView.textStorage?.setAttributedString(attributedString)
 
         var (a0, a1) = (CGRect(), CGRect())
-        getParagraphRect(&a0, firstLineRect: &a1, forLineNumber: 60)
+        getParagraphRect(&a0, firstLineRect: &a1, forLineNumber: line)
 
         plugin.popover.contentSize = CGSize(width: 500, height: 250)
         plugin.textView.frame.size = plugin.popover.contentSize
@@ -58,6 +58,7 @@ extension NSRulerView {
   func zen_sidebarWidth() -> CGFloat {
     return zen_sidebarWidth() + (plugin?.sidebarWidth ?? 0)
   }
+
 
 
 }
