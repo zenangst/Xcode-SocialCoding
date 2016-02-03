@@ -43,9 +43,10 @@ class SocialCodingPlugin: NSObject {
   lazy var socialController: SocialViewController = { [unowned self] in
     let controller = SocialViewController()
     controller.view.autoresizesSubviews = true
-    if let scrollView = controller.view as? NSScrollView {
-      scrollView.documentView = self.textView
-    }
+
+    guard let scrollView = controller.view as? NSScrollView else { return controller }
+    scrollView.documentView = self.textView
+
     return controller
   }()
 
