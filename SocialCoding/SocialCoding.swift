@@ -2,18 +2,6 @@ import Cocoa
 
 var plugin: SocialCodingPlugin? = nil
 
-extension NSObject {
-
-  class func pluginDidLoad(bundle: NSBundle) {
-    guard let appName = NSBundle.mainBundle().infoDictionary?["CFBundleName"] as? String
-      where plugin == nil && appName == "Xcode" else {
-        return
-    }
-
-    plugin = SocialCodingPlugin()
-  }
-}
-
 class SocialCodingPlugin: NSObject {
 
   var sidebarWidth: CGFloat = 0
