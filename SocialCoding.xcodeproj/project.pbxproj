@@ -57,12 +57,12 @@
 			isa = PBXGroup;
 			children = (
 				BD5A85E91C5FCFFB00465C30 /* Info.plist */,
+				BD8FE6BF1C62040D00CFB0D3 /* NSObject+SocialCoding.swift */,
+				BDD7C58F1C620240007ACB06 /* NSRuler+SocialCoding.swift */,
 				BD5A85EC1C5FCFFB00465C30 /* SocialCoding-Bridging-Header.h */,
 				BD5A85ED1C5FCFFB00465C30 /* SocialCoding.swift */,
-				BDEBC8EE1C5FEFA9004F7621 /* XcodeHeaders.h */,
-				BDD7C58F1C620240007ACB06 /* NSRuler+SocialCoding.swift */,
 				BD8FE6BD1C6203F200CFB0D3 /* SocialViewController.swift */,
-				BD8FE6BF1C62040D00CFB0D3 /* NSObject+SocialCoding.swift */,
+				BDEBC8EE1C5FEFA9004F7621 /* XcodeHeaders.h */,
 			);
 			path = SocialCoding;
 			sourceTree = "<group>";
