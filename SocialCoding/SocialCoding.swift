@@ -25,7 +25,6 @@ class SocialViewController: NSViewController {
     view.layer?.backgroundColor = NSColor.clearColor().CGColor
     view.wantsLayer = true
   }
-
 }
 
 class SocialCodingPlugin: NSObject {
