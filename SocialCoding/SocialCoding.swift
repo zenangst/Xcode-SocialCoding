@@ -5,12 +5,14 @@ var plugin: SocialCodingPlugin? = nil
 class SocialCodingPlugin: NSObject {
 
   var sidebarWidth: CGFloat = 0
+  var data = [String : Source]()
 
   lazy var popover: NSPopover = { [unowned self] in
     let popover = NSPopover()
     popover.animates = true
     popover.behavior = .Transient
     popover.contentViewController = self.socialController
+
     return popover
   }()
 
@@ -29,6 +31,16 @@ class SocialCodingPlugin: NSObject {
       selector: "applicationDidFinishLaunching:",
       name: NSApplicationDidFinishLaunchingNotification,
       object: nil)
+
+    data["SocialCoding.swift"] = Source(
+      file: "SocialCoding.swift",
+      line: 59,
+      comments: [
+        Comment(author: "Johannes Gorset", text: "Foo bar"),
+        Comment(author: "Vadym Markov", text: "Weirdo"),
+        Comment(author: "Ramon Gilabert", text: "Dude!")
+      ]
+    )
   }
 
   func applicationDidFinishLaunching(notification: NSNotification) {

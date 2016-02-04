@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD26AF271C6205C80038A91B /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD26AF261C6205C80038A91B /* Comment.swift */; };
+		BD26AF291C6205D30038A91B /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD26AF281C6205D30038A91B /* Source.swift */; };
 		BD5A85E51C5FC8D600465C30 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD5A85E41C5FC8D600465C30 /* Cocoa.framework */; };
 		BD5A85F11C5FCFFB00465C30 /* SocialCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5A85ED1C5FCFFB00465C30 /* SocialCoding.swift */; };
 		BD8FE6BE1C6203F200CFB0D3 /* SocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8FE6BD1C6203F200CFB0D3 /* SocialViewController.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD26AF261C6205C80038A91B /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		BD26AF281C6205D30038A91B /* Source.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
 		BD5A85E41C5FC8D600465C30 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		BD5A85E91C5FCFFB00465C30 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD5A85EC1C5FCFFB00465C30 /* SocialCoding-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocialCoding-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -53,9 +57,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD26AF251C6205C80038A91B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BD26AF261C6205C80038A91B /* Comment.swift */,
+				BD26AF281C6205D30038A91B /* Source.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		BD5A85E61C5FCFFB00465C30 /* SocialCoding */ = {
 			isa = PBXGroup;
 			children = (
+				BD26AF251C6205C80038A91B /* Models */,
 				BD5A85E91C5FCFFB00465C30 /* Info.plist */,
 				BD8FE6BF1C62040D00CFB0D3 /* NSObject+SocialCoding.swift */,
 				BDD7C58F1C620240007ACB06 /* NSRuler+SocialCoding.swift */,
@@ -164,7 +178,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD26AF271C6205C80038A91B /* Comment.swift in Sources */,
 				BD8FE6C01C62040D00CFB0D3 /* NSObject+SocialCoding.swift in Sources */,
+				BD26AF291C6205D30038A91B /* Source.swift in Sources */,
 				BD8FE6BE1C6203F200CFB0D3 /* SocialViewController.swift in Sources */,
 				BDD7C5901C620240007ACB06 /* NSRuler+SocialCoding.swift in Sources */,
 				BD5A85F11C5FCFFB00465C30 /* SocialCoding.swift in Sources */,
